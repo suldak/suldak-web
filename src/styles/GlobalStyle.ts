@@ -1,6 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 
+// fonts
+// import PretendardBold from '@assets/fonts/Pretendard-Bold.otf'
+
 const GlobalStyle = createGlobalStyle`
+  /* @font-face {
+    font-family: 'Pretendard-Bold';
+    src: local('Pretendard-Bold');
+    font-style: normal;
+  } */
+
   *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -9,7 +18,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
+    background-color: white;
   }
 
   h2, p {

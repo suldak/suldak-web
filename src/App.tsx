@@ -1,7 +1,24 @@
 import styled from 'styled-components';
 
+// container
+import RowOne from '@container/row-one';
+import RowTwo from '@container/row-two';
+import RowThree from '@container/row-three';
+import RowFour from '@container/row-four';
+
+import Footer from '@container/Footer';
+
 function App() {
-  return <Container>술닥술닥</Container>;
+  return (
+    <Container>
+      <RowOne />
+      <RowTwo />
+      <RowThree />
+      <RowFour />
+
+      <Footer />
+    </Container>
+  );
 }
 
 export default App;
