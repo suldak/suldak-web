@@ -1,7 +1,20 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
 
 // fonts
 // import PretendardBold from '@assets/fonts/Pretendard-Bold.otf'
+
+// animations
+const fadeIn = keyframes`
+  from {
+    /* transform: scale(.25); */
+    opacity: 0;
+  }
+
+  to {
+    /* transform: scale(1); */
+    opacity: 1;
+  }
+`;
 
 const GlobalStyle = createGlobalStyle`
   /* @font-face {
@@ -18,8 +31,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
     width: 100vw;
-    /* height: 100vh; */
     background-color: white;
+    animation: ${fadeIn} 2s linear;
   }
 
   h2, p {

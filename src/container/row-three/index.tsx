@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { Color } from '@styles/Colors';
 
+// image & icon
+import RowThreeImageOne from '@assets/images/row-three-image1.svg';
+import RowThreeImageTwo from '@assets/images/row-three-image2.svg';
+import RowThreeImageThree from '@assets/images/row-three-image3.svg';
+
 // components
 import RowContainer from '@components/RowContainer';
 
@@ -8,10 +13,17 @@ const RowThree = () => {
   return (
     <RowContainer>
       <Container>
-        <span className="title">술친구 만들기</span>
-        <span className="sub-title">
-          나누고 싶은 이야기 주제를 선택해 모임에 참여해요. 내가 모임을 만들 수도 있어요.
-        </span>
+        <div className="title-box">
+          <span className="title">술친구 만들기</span>
+          <span className="sub-title">
+            나누고 싶은 이야기 주제를 선택해 모임에 참여해요. 내가 모임을 만들 수도 있어요.
+          </span>
+        </div>
+        <div className="row-three-image-box">
+          <img className="row-three-image" src={RowThreeImageOne} />
+          <img className="row-three-image" src={RowThreeImageTwo} />
+          <img className="row-three-image" src={RowThreeImageThree} />
+        </div>
       </Container>
     </RowContainer>
   );
@@ -27,18 +39,39 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 937px;
-  background-color: #eaf9fb;
+  width: 100%;
+  background-color: ${Color.suldakIvory};
+  padding: 100px 0;
 
-  .title {
-    font-size: 52px;
-    font-weight: bold;
-    color: #090909;
+  .title-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 60px;
+
+    .title {
+      font-size: 52px;
+      font-weight: bold;
+      color: #090909;
+    }
+
+    .sub-title {
+      font-size: 18px;
+      font-weight: medium;
+      color: #090909;
+    }
   }
 
-  .sub-title {
-    font-size: 18px;
-    font-weight: medium;
-    color: #090909;
+  .row-three-image-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 50px;
+
+    .row-three-image {
+      width: 300px;
+    }
   }
 `;

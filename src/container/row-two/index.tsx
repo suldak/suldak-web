@@ -44,7 +44,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transform: translate(10px, 90px);
+    transform: translate(100px, 100px);
 
     .row-two-image-des {
       font-size: 12px;
@@ -53,7 +53,7 @@ const Container = styled.div`
     }
 
     .row-two-image-one {
-      width: 50%;
+      width: 300px;
     }
   }
 
@@ -66,6 +66,7 @@ const Container = styled.div`
       font-size: 52px;
       font-weight: bold;
       color: ${Color.textColor};
+      margin-bottom: 20px;
     }
     .sub-title-container {
       display: flex;

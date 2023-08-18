@@ -43,6 +43,7 @@ const Container = styled.div`
 
   .bubble-image {
     position: absolute;
+    transform: translate(350px, -200px);
   }
 
   .title-container {
