@@ -5,6 +5,7 @@ import { Color } from '@styles/Colors';
 import RowThreeImageOne from '@assets/images/row-three-image1.svg';
 import RowThreeImageTwo from '@assets/images/row-three-image2.svg';
 import RowThreeImageThree from '@assets/images/row-three-image3.svg';
+import Maka from '@assets/images/row-three-maka.svg';
 
 // components
 import RowContainer from '@components/RowContainer';
@@ -24,6 +25,9 @@ const RowThree = () => {
           <img className="row-three-image" src={RowThreeImageTwo} />
           <img className="row-three-image" src={RowThreeImageThree} />
         </div>
+        <div className="row-two-maka-box">
+          <img className="row-three-image-maka" src={Maka} />
+        </div>
       </Container>
     </RowContainer>
   );
@@ -40,8 +44,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${Color.suldakIvory};
-  padding: 100px 0;
+  background-color: #f3e9a3;
+  padding: 130px 0;
 
   .title-box {
     display: flex;
@@ -72,6 +76,15 @@ const Container = styled.div`
 
     .row-three-image {
       width: 300px;
+    }
+  }
+
+  .row-two-maka-box {
+    position: absolute;
+    display: flex;
+    transform: translate(530px, 402px);
+
+    .row-three-image-maka {
     }
   }
 `;

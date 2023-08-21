@@ -3,6 +3,7 @@ import { Color } from '@styles/Colors';
 
 // image & icon
 import SuldakBubble from '@assets/images/suldak-bubble.svg';
+import Maka from '@assets/images/row-one-maka.svg';
 
 // components
 import RowContainer from '@components/RowContainer';
@@ -24,7 +25,10 @@ const RowOne = () => {
         <span className="sub-title">
           술 한잔 하고 싶다! 나만을 위한 추천 술과 곁들일 이야기를 찾아봐요
         </span>
-        <button className="noti-button">누구보다 빠르게 출시 알림 받기</button>
+        <div className="noti-box">
+          <img src={Maka} />
+          <button className="noti-button">누구보다 빠르게 출시 알림 받기</button>
+        </div>
       </Container>
     </RowContainer>
   );
@@ -38,8 +42,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 765px;
   background-color: ${Color.suldakBlue};
+  padding: 100px 0;
 
   .bubble-image {
     position: absolute;
@@ -67,18 +71,24 @@ const Container = styled.div`
     letter-spacing: -0.3%;
     line-height: 36px;
   }
-  .noti-button {
-    color: ${Color.primaryColor};
-    background-color: white;
-    padding: 24px 80px;
-    border: none;
-    border-radius: 5rem;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 5rem;
 
-    &:hover {
-      cursor: pointer;
+  .noti-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .noti-button {
+      color: white;
+      background-color: #0f4448;
+      padding: 24px 160px;
+      border: none;
+      border-radius: 5rem;
+      font-size: 20px;
+      font-weight: bold;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 `;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Color } from '@styles/Colors';
 
-import Mouse from '@assets/images/row-two-mouse.svg';
+import Roni from '@assets/images/row-two-roni.svg';
 import RowTwoImageOne from '@assets/images/row-two-image1.svg';
 
 // components
@@ -22,7 +22,9 @@ const RowTwo = () => {
           <span className="row-two-image-des">*개발중인 화면으로 UI 등은 변경될 수 있습니다.</span>
           <img className="row-two-image-one" src={RowTwoImageOne} />
         </div>
-        <img src={Mouse} />
+        <div className="row-two-roni-box">
+          <img src={Roni} className="row-two-image-roni" />
+        </div>
       </Container>
     </RowContainer>
   );
@@ -54,6 +56,15 @@ const Container = styled.div`
 
     .row-two-image-one {
       width: 300px;
+      z-index: 1;
+    }
+  }
+
+  .row-two-roni-box {
+    display: flex;
+    transform: translate(120px, 170px);
+    .row-two-image-roni {
+      z-index: 2;
     }
   }
 
