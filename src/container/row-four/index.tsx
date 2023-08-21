@@ -22,10 +22,12 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 638px;
+  background-color: #f2f2e3;
 
   .title {
     font-size: 52px;
     font-weight: bold;
     color: #000000;
+    margin-top: 130px;
   }
 `;

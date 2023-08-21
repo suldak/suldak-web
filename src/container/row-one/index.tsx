@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { motion } from 'framer-motion';
 import { Color } from '@styles/Colors';
 
 // image & icon
@@ -26,7 +27,7 @@ const RowOne = () => {
           술 한잔 하고 싶다! 나만을 위한 추천 술과 곁들일 이야기를 찾아봐요
         </span>
         <div className="noti-box">
-          <img src={Maka} />
+          <img src={Maka} className="row-one-image-maka" />
           <button className="noti-button">누구보다 빠르게 출시 알림 받기</button>
         </div>
       </Container>
@@ -35,6 +36,32 @@ const RowOne = () => {
 };
 
 export default RowOne;
+
+// animations
+const moveTop = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(0px, 20px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+`;
+
+const scaleChange = keyframes`
+  0% {
+    transform: scale(0.1) translate(350px, -200px);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.2) translate(350px, -200px);
+  }
+  100% {
+    transform: scale(1) translate(350px, -200px);
+    opacity: 1;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -48,6 +75,13 @@ const Container = styled.div`
   .bubble-image {
     position: absolute;
     transform: translate(350px, -200px);
+
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 600ms;
+    animation-iteration-count: 1;
+    /* opacity: 1; */
+    animation-name: ${scaleChange};
   }
 
   .title-container {
@@ -72,6 +106,16 @@ const Container = styled.div`
     line-height: 36px;
   }
 
+  .row-one-image-maka {
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 600ms;
+    animation-iteration-count: 1;
+    opacity: 1;
+    animation-name: ${moveTop};
+    z-index: 1;
+  }
+
   .noti-box {
     display: flex;
     flex-direction: column;
@@ -85,6 +129,7 @@ const Container = styled.div`
       border-radius: 5rem;
       font-size: 20px;
       font-weight: bold;
+      z-index: 2;
 
       &:hover {
         cursor: pointer;

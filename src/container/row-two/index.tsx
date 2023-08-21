@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Color } from '@styles/Colors';
 
 import Roni from '@assets/images/row-two-roni.svg';
@@ -32,6 +32,40 @@ const RowTwo = () => {
 
 export default RowTwo;
 
+// animations
+const moveTop = keyframes`
+    0% {
+    opacity: 0;
+    transform: translate(0px, 20px);
+  }
+  100% {
+    opacity: 1;
+    /* transform: none; */
+  }
+`;
+
+const moveTopMobileImage = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(100px, 120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(100px, 100px);
+  }
+`;
+
+const moveTopRoni = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(120px, 190px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(120px, 170px);
+  }
+`;
+
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -48,6 +82,12 @@ const Container = styled.div`
     flex-direction: column;
     transform: translate(100px, 100px);
 
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 1200ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTopMobileImage};
+
     .row-two-image-des {
       font-size: 12px;
       color: #8e8e8e;
@@ -63,6 +103,13 @@ const Container = styled.div`
   .row-two-roni-box {
     display: flex;
     transform: translate(120px, 170px);
+
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 1500ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTopRoni};
+
     .row-two-image-roni {
       z-index: 2;
     }
@@ -78,11 +125,24 @@ const Container = styled.div`
       font-weight: bold;
       color: ${Color.textColor};
       margin-bottom: 20px;
+
+      animation-fill-mode: both;
+      animation-duration: 900ms;
+      animation-delay: 600ms;
+      animation-iteration-count: 1;
+      animation-name: ${moveTop};
     }
     .sub-title-container {
       display: flex;
       flex-direction: column;
       line-height: 25px;
+
+      animation-fill-mode: both;
+      animation-duration: 900ms;
+      animation-delay: 900ms;
+      animation-iteration-count: 1;
+      opacity: 1;
+      animation-name: ${moveTop};
 
       .sub-title {
         font-size: 18px;
