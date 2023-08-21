@@ -69,6 +69,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100vh;
   background-color: ${Color.suldakBlue};
   padding: 100px 0;
 

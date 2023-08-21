@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
-    width: 100vw;
+    width: 100%;
     background-color: white;
     animation: ${fadeIn} 2s linear;
   }
