@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Color } from '@styles/Colors';
 
 // image & icon
@@ -21,9 +21,9 @@ const RowThree = () => {
           </span>
         </div>
         <div className="row-three-image-box">
-          <img className="row-three-image" src={RowThreeImageOne} />
-          <img className="row-three-image" src={RowThreeImageTwo} />
-          <img className="row-three-image" src={RowThreeImageThree} />
+          <img className="row-three-image one" src={RowThreeImageOne} />
+          <img className="row-three-image two" src={RowThreeImageTwo} />
+          <img className="row-three-image three" src={RowThreeImageThree} />
         </div>
         <div className="row-two-maka-box">
           <img className="row-three-image-maka" src={Maka} />
@@ -34,6 +34,18 @@ const RowThree = () => {
 };
 
 export default RowThree;
+
+// animations
+const moveTop = keyframes`
+    0% {
+    opacity: 0;
+    transform: translate(0px, 20px);
+  }
+  100% {
+    opacity: 1;
+    /* transform: none; */
+  }
+`;
 
 const Container = styled.div`
   position: relative;
@@ -47,6 +59,28 @@ const Container = styled.div`
   background-color: #f3e9a3;
   padding: 130px 0;
 
+  .one {
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 1200ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTop};
+  }
+  .two {
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 1500ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTop};
+  }
+  .three {
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 1800ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTop};
+  }
+
   .title-box {
     display: flex;
     align-items: center;
@@ -58,12 +92,24 @@ const Container = styled.div`
       font-size: 52px;
       font-weight: bold;
       color: #090909;
+
+      animation-fill-mode: both;
+      animation-duration: 900ms;
+      animation-delay: 600ms;
+      animation-iteration-count: 1;
+      animation-name: ${moveTop};
     }
 
     .sub-title {
       font-size: 18px;
       font-weight: medium;
       color: #090909;
+
+      animation-fill-mode: both;
+      animation-duration: 900ms;
+      animation-delay: 900ms;
+      animation-iteration-count: 1;
+      animation-name: ${moveTop};
     }
   }
 
