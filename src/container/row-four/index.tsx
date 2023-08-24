@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Color } from '@styles/Colors';
 
 // image & icon
@@ -37,13 +37,40 @@ const RowFour = () => {
 
 export default RowFour;
 
+// animations
+const moveTop = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(0px, 70px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 50px);
+  }
+`;
+
+const moveTopCocktail = keyframes`
+  0%{
+    opacity: 0;
+    transform: translate(0px, 100px);
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0px, 80px);
+  }
+`;
 const Floor = styled.div`
   width: 100%;
   height: 400px;
   border-radius: 30%;
   transform: translate(0, 50px);
   background-color: #b09f8b;
-  z-index: 1;
+
+  animation-fill-mode: both;
+  animation-duration: 900ms;
+  animation-delay: 900ms;
+  animation-iteration-count: 1;
+  animation-name: ${moveTop};
 `;
 
 const Container = styled.div`
@@ -53,6 +80,8 @@ const Container = styled.div`
   width: 100%;
   height: 638px;
   background-color: #f2f2e3;
+  position: relative;
+  z-index: 2;
 
   .title {
     font-size: 52px;
@@ -71,6 +100,12 @@ const Container = styled.div`
   .cocktail {
     z-index: 2;
     transform: translate(0, 80px);
+
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 1200ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTopCocktail};
   }
 `;
 

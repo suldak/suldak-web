@@ -6,6 +6,7 @@ import RowThreeImageOne from '@assets/images/row-three-image1.svg';
 import RowThreeImageTwo from '@assets/images/row-three-image2.svg';
 import RowThreeImageThree from '@assets/images/row-three-image3.svg';
 import Maka from '@assets/images/row-three-maka.svg';
+import MakaTalk from '@assets/images/row-three-talk.svg';
 
 // components
 import RowContainer from '@components/RowContainer';
@@ -26,6 +27,7 @@ const RowThree = () => {
           <img className="row-three-image three" src={RowThreeImageThree} />
         </div>
         <div className="row-two-maka-box">
+          <img className="row-three-image-maka-talk" src={MakaTalk} />
           <img className="row-three-image-maka" src={Maka} />
         </div>
       </Container>
@@ -128,9 +130,12 @@ const Container = styled.div`
   .row-two-maka-box {
     position: absolute;
     display: flex;
-    transform: translate(530px, 402px);
+    flex-direction: column;
+    gap: 20px;
+    transform: translate(530px, 320px);
 
     .row-three-image-maka {
+      z-index: 1;
     }
   }
 `;

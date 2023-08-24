@@ -3,7 +3,7 @@ import { Color } from '@styles/Colors';
 
 // image & icon
 import SuldakLogo from '@assets/images/suldak-logo-white.svg';
-import NaverIcon from '@assets/images/naver-icon.svg';
+import NotionIcon from '@assets/images/notion-icon.svg';
 import InstaIcon from '@assets/images/insta-icon.svg';
 
 // components
@@ -15,8 +15,20 @@ const Footer = () => {
       <Container>
         <img src={SuldakLogo} />
         <div className="icon-box">
-          <img className="icon" src={NaverIcon} />
-          <img className="icon" src={InstaIcon} />
+          <img
+            className="icon"
+            src={NotionIcon}
+            onClick={() => {
+              window.open('https://suldak.notion.site/suldak/1ee0d943ac10491cb27f87ebb98768d6');
+            }}
+          />
+          <img
+            className="icon"
+            src={InstaIcon}
+            onClick={() => {
+              window.open('https://www.instagram.com/suldak.official/');
+            }}
+          />
         </div>
         <span className="contact">Contact : suldak.offical@gmail.com</span>
         <span className="copyright">Copyright @ 술닥술닥 all rights reserved</span>

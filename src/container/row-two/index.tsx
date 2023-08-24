@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { Color } from '@styles/Colors';
 
 import Roni from '@assets/images/row-two-roni.svg';
+import RoniTalk from '@assets/images/row-two-talk.svg';
 import RowTwoImageOne from '@assets/images/row-two-image1.svg';
 
 // components
@@ -23,6 +24,7 @@ const RowTwo = () => {
           <img className="row-two-image-one" src={RowTwoImageOne} />
         </div>
         <div className="row-two-roni-box">
+          <img src={RoniTalk} className="row-two-image-roni-talk" />
           <img src={Roni} className="row-two-image-roni" />
         </div>
       </Container>
@@ -34,7 +36,7 @@ export default RowTwo;
 
 // animations
 const moveTop = keyframes`
-    0% {
+  0% {
     opacity: 0;
     transform: translate(0px, 20px);
   }
@@ -62,7 +64,7 @@ const moveTopRoni = keyframes`
   }
   100% {
     opacity: 1;
-    transform: translate(120px, 170px);
+    transform: translate(120px, 100px);
   }
 `;
 
@@ -102,6 +104,7 @@ const Container = styled.div`
 
   .row-two-roni-box {
     display: flex;
+    flex-direction: column;
     transform: translate(120px, 170px);
 
     animation-fill-mode: both;
