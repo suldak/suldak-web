@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 import { Color } from '@styles/Colors';
+import { MdKeyboardDoubleArrowDown } from 'react-icons/md';
 
 // image & icon
 import SuldakBubble from '@assets/images/suldak-bubble.svg';
@@ -30,6 +31,9 @@ const RowOne = () => {
           <img src={Maka} className="row-one-image-maka" />
           <button className="noti-button">누구보다 빠르게 출시 알림 받기</button>
         </div>
+        <ScrollDownIcon>
+          <MdKeyboardDoubleArrowDown />
+        </ScrollDownIcon>
       </Container>
     </RowContainer>
   );
@@ -60,6 +64,17 @@ const scaleChange = keyframes`
   100% {
     transform: scale(1) translate(350px, -200px);
     opacity: 1;
+  }
+`;
+
+const scrollDown = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(0, 0px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translate(0, 20px);
   }
 `;
 
@@ -137,4 +152,17 @@ const Container = styled.div`
       }
     }
   }
+`;
+
+const ScrollDownIcon = styled.div`
+  position: absolute;
+  bottom: 30px;
+  color: white;
+  font-size: 48px;
+
+  animation-fill-mode: both;
+  animation-duration: 2000ms;
+  animation-delay: 1200ms;
+  animation-iteration-count: infinite;
+  animation-name: ${scrollDown};
 `;

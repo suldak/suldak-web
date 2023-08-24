@@ -31,6 +31,8 @@ const Container = styled.div`
   width: 100%;
   height: 284px;
   background-color: ${Color.footerBgColor};
+  position: relative;
+  z-index: 2;
 
   display: flex;
   align-items: center;

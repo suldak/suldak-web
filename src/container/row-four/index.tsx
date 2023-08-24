@@ -28,13 +28,23 @@ const RowFour = () => {
           <Input value={emailInput.value} onChange={emailInput.onChange} />
           <SubmitButton onClick={submitEamil}>확인</SubmitButton>
         </div>
-        <img src={Cocktail} />
+        <img className="cocktail" src={Cocktail} />
+        <Floor />
       </Container>
     </RowContainer>
   );
 };
 
 export default RowFour;
+
+const Floor = styled.div`
+  width: 100%;
+  height: 400px;
+  border-radius: 30%;
+  transform: translate(0, 50px);
+  background-color: #b09f8b;
+  z-index: 1;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -56,6 +66,11 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+
+  .cocktail {
+    z-index: 2;
+    transform: translate(0, 80px);
   }
 `;
 
