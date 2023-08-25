@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styled, { keyframes } from 'styled-components';
 import { Color } from '@styles/Colors';
 
@@ -9,24 +11,41 @@ import RowTwoImageOne from '@assets/images/row-two-image1.svg';
 import RowContainer from '@components/RowContainer';
 
 const RowTwo = () => {
+  const [shouldRenderInner, setShouldRenderInner] = useState(false);
+  const [ref, inView] = useInView({
+    threshold: 0.4,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setShouldRenderInner(true);
+    }
+  }, [inView]);
+
   return (
     <RowContainer>
-      <Container>
-        <div className="title-container">
-          <span className="title">취향저격 술추천</span>
-          <div className="sub-title-container">
-            <span className="sub-title">현재 나의 기분이나 생각나는 술을 검색하면</span>
-            <span className="sub-title">지금 나에게 딱 맞는 술을 추천해요.</span>
-          </div>
-        </div>
-        <div className="row-two-image-box">
-          <span className="row-two-image-des">*개발중인 화면으로 UI 등은 변경될 수 있습니다.</span>
-          <img className="row-two-image-one" src={RowTwoImageOne} />
-        </div>
-        <div className="row-two-roni-box">
-          <img src={RoniTalk} className="row-two-image-roni-talk" />
-          <img src={Roni} className="row-two-image-roni" />
-        </div>
+      <Container ref={ref}>
+        {shouldRenderInner && (
+          <>
+            <div className="title-container">
+              <span className="title">취향저격 술추천</span>
+              <div className="sub-title-container">
+                <span className="sub-title">현재 나의 기분이나 생각나는 술을 검색하면</span>
+                <span className="sub-title">지금 나에게 딱 맞는 술을 추천해요.</span>
+              </div>
+            </div>
+            <div className="row-two-image-box">
+              <span className="row-two-image-des">
+                *개발중인 화면으로 UI 등은 변경될 수 있습니다.
+              </span>
+              <img className="row-two-image-one" src={RowTwoImageOne} />
+            </div>
+            <div className="row-two-roni-box">
+              <img src={RoniTalk} className="row-two-image-roni-talk" />
+              <img src={Roni} className="row-two-image-roni" />
+            </div>
+          </>
+        )}
       </Container>
     </RowContainer>
   );
@@ -74,7 +93,8 @@ const Container = styled.div`
   justify-content: center;
 
   width: 100%;
-  /* height: 588px; */
+  height: 600px;
+  /* height: 100%; */
   background-color: white;
 
   .row-two-image-box {

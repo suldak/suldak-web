@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styled, { keyframes } from 'styled-components';
 import { Color } from '@styles/Colors';
 
@@ -12,6 +14,16 @@ import Input from '@components/Input';
 import useInput from '@hooks/useInput';
 
 const RowFour = () => {
+  const [shouldRenderInner, setShouldRenderInner] = useState(false);
+  const [ref, inView] = useInView({
+    threshold: 0.4,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setShouldRenderInner(true);
+    }
+  }, [inView]);
   const emailInput = useInput('');
 
   // email 전송
@@ -21,15 +33,19 @@ const RowFour = () => {
 
   return (
     <RowContainer>
-      <Container>
-        <span className="title">술닥술닥이 출시될 때 가장 먼저 알려드릴게요!</span>
+      <Container ref={ref}>
+        {shouldRenderInner && (
+          <>
+            <span className="title">술닥술닥이 출시될 때 가장 먼저 알려드릴게요!</span>
 
-        <div className="submit-box">
-          <Input value={emailInput.value} onChange={emailInput.onChange} />
-          <SubmitButton onClick={submitEamil}>확인</SubmitButton>
-        </div>
-        <img className="cocktail" src={Cocktail} />
-        <Floor />
+            <div className="submit-box">
+              <Input value={emailInput.value} onChange={emailInput.onChange} />
+              <SubmitButton onClick={submitEamil}>확인</SubmitButton>
+            </div>
+            <img className="cocktail" src={Cocktail} />
+            <Floor />
+          </>
+        )}
       </Container>
     </RowContainer>
   );
@@ -38,7 +54,19 @@ const RowFour = () => {
 export default RowFour;
 
 // animations
+
 const moveTop = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(0px, 20px);
+  }
+  100% {
+    opacity: 1;
+    /* transform: none; */
+  }
+`;
+
+const moveTopFloor = keyframes`
   0% {
     opacity: 0;
     transform: translate(0px, 70px);
@@ -70,7 +98,7 @@ const Floor = styled.div`
   animation-duration: 900ms;
   animation-delay: 900ms;
   animation-iteration-count: 1;
-  animation-name: ${moveTop};
+  animation-name: ${moveTopFloor};
 `;
 
 const Container = styled.div`
@@ -89,12 +117,24 @@ const Container = styled.div`
     color: #000000;
     margin-top: 130px;
     margin-bottom: 50px;
+
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 600ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTop};
   }
 
   .submit-box {
     display: flex;
     align-items: center;
     gap: 20px;
+
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 900ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTop};
   }
 
   .cocktail {

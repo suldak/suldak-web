@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styled, { keyframes } from 'styled-components';
 import { Color } from '@styles/Colors';
 
@@ -12,24 +14,38 @@ import MakaTalk from '@assets/images/row-three-talk.svg';
 import RowContainer from '@components/RowContainer';
 
 const RowThree = () => {
+  const [shouldRenderInner, setShouldRenderInner] = useState(false);
+  const [ref, inView] = useInView({
+    threshold: 0.4,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setShouldRenderInner(true);
+    }
+  }, [inView]);
   return (
     <RowContainer>
-      <Container>
-        <div className="title-box">
-          <span className="title">술친구 만들기</span>
-          <span className="sub-title">
-            나누고 싶은 이야기 주제를 선택해 모임에 참여해요. 내가 모임을 만들 수도 있어요.
-          </span>
-        </div>
-        <div className="row-three-image-box">
-          <img className="row-three-image one" src={RowThreeImageOne} />
-          <img className="row-three-image two" src={RowThreeImageTwo} />
-          <img className="row-three-image three" src={RowThreeImageThree} />
-        </div>
-        <div className="row-two-maka-box">
-          <img className="row-three-image-maka-talk" src={MakaTalk} />
-          <img className="row-three-image-maka" src={Maka} />
-        </div>
+      <Container ref={ref}>
+        {shouldRenderInner && (
+          <>
+            <div className="title-box">
+              <span className="title">술친구 만들기</span>
+              <span className="sub-title">
+                나누고 싶은 이야기 주제를 선택해 모임에 참여해요. 내가 모임을 만들 수도 있어요.
+              </span>
+            </div>
+            <div className="row-three-image-box">
+              <img className="row-three-image one" src={RowThreeImageOne} />
+              <img className="row-three-image two" src={RowThreeImageTwo} />
+              <img className="row-three-image three" src={RowThreeImageThree} />
+            </div>
+            <div className="row-two-maka-box">
+              <img className="row-three-image-maka-talk" src={MakaTalk} />
+              <img className="row-three-image-maka" src={Maka} />
+            </div>
+          </>
+        )}
       </Container>
     </RowContainer>
   );
@@ -39,13 +55,24 @@ export default RowThree;
 
 // animations
 const moveTop = keyframes`
-    0% {
+  0% {
     opacity: 0;
     transform: translate(0px, 20px);
   }
   100% {
     opacity: 1;
     /* transform: none; */
+  }
+`;
+
+const moveTopMaka = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(530px, 390px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(530px, 320px);
   }
 `;
 
@@ -58,6 +85,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 1000px;
   background-color: #f3e9a3;
   padding: 130px 0;
 
@@ -133,6 +161,12 @@ const Container = styled.div`
     flex-direction: column;
     gap: 20px;
     transform: translate(530px, 320px);
+
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 2100ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTopMaka};
 
     .row-three-image-maka {
       z-index: 1;
