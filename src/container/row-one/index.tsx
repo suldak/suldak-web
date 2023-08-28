@@ -6,6 +6,7 @@ import { MdKeyboardDoubleArrowDown } from 'react-icons/md';
 // image & icon
 import SuldakBubble from '@assets/images/suldak-bubble.svg';
 import Maka from '@assets/images/row-one-maka.svg';
+import MakaLottie from '@components/MakaLottie';
 
 // components
 import RowContainer from '@components/RowContainer';
@@ -28,7 +29,8 @@ const RowOne = () => {
           술 한잔 하고 싶다! 나만을 위한 추천 술과 곁들일 이야기를 찾아봐요
         </span>
         <div className="noti-box">
-          <img src={Maka} className="row-one-image-maka" />
+          <MakaLottie />
+          {/* <img src={Maka} className="row-one-image-maka" /> */}
           <button className="noti-button">누구보다 빠르게 출시 알림 받기</button>
         </div>
         <ScrollDownIcon>
