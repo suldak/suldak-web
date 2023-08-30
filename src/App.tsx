@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import theme from './styles/Theme';
 
 // container
 import RowOne from '@container/row-one';
@@ -10,14 +11,16 @@ import Footer from '@container/Footer';
 
 function App() {
   return (
-    <Container>
-      <RowOne />
-      <RowTwo />
-      <RowThree />
-      <RowFour />
+    <ThemeProvider theme={theme}>
+      <Container>
+        <RowOne />
+        <RowTwo />
+        <RowThree />
+        <RowFour />
 
-      <Footer />
-    </Container>
+        <Footer />
+      </Container>
+    </ThemeProvider>
   );
 }
 

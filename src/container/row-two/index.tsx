@@ -119,6 +119,10 @@ const Container = styled.div`
     .row-two-image-one {
       width: 300px;
       z-index: 1;
+
+      @media ${({ theme }) => theme.device.desktop} {
+        width: 200px;
+      }
     }
   }
 
