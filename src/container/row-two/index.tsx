@@ -153,6 +153,21 @@ const Container = styled.div`
       color: ${Color.textColor};
       margin-bottom: 20px;
 
+      // desktop
+      @media ${({ theme }) => theme.device.desktop} {
+        font-size: 42px;
+      }
+
+      // tablet
+      @media ${({ theme }) => theme.device.tablet} {
+        font-size: 32px;
+      }
+
+      // mobile
+      @media ${({ theme }) => theme.device.mobile} {
+        font-size: 22px;
+      }
+
       animation-fill-mode: both;
       animation-duration: 900ms;
       animation-delay: 600ms;

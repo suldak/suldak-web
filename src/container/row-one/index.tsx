@@ -55,14 +55,14 @@ const moveTop = keyframes`
 
 const scaleChange = keyframes`
   0% {
-    transform: scale(0.1) translate(350px, -200px);
+    transform: scale(0.1) translate(105%, -65%);
     opacity: 0;
   }
   80% {
-    transform: scale(1.2) translate(350px, -200px);
+    transform: scale(1.2) translate(105%, -65%);
   }
   100% {
-    transform: scale(1) translate(350px, -200px);
+    transform: scale(1) translate(105%, -65%);
     opacity: 1;
   }
 `;
@@ -102,7 +102,7 @@ const Container = styled.div`
 
   .bubble-image {
     position: absolute;
-    transform: translate(350px, -200px);
+    transform: translate(105%, -65%);
 
     animation-fill-mode: both;
     animation-duration: 900ms;
