@@ -2,44 +2,170 @@ import styled, { keyframes } from 'styled-components';
 import { Color } from '@styles/Colors';
 import { MdKeyboardDoubleArrowDown } from 'react-icons/md';
 
+// responsive
+import { Desktop, Tablet, Mobile } from '@hooks/useResponsive';
+
 // image & icon
 import SuldakBubble from '@assets/images/suldak-bubble.svg';
 import MakaLottie from '@components/MakaLottie';
 
 // components
 import RowContainer from '@components/RowContainer';
+import Text from '@components/Text';
+import Button from '@components/Button';
 
 const RowOne = () => {
   return (
     <RowContainer>
       <Container>
-        <div className="title-container">
-          <span className="title">
-            이야기와 술을
-            <div className="bubble-image">
-              <img src={SuldakBubble} />
-            </div>
-          </span>
-          <span className="title">나누는 곳, 술닥술닥</span>
-        </div>
+        {/* desktop */}
+        <RowOneDesktop />
 
-        <span className="sub-title">
-          술 한잔 하고 싶다! 나만을 위한 추천 술과 곁들일 이야기를 찾아봐요
-        </span>
-        <div className="noti-box">
-          <MakaLottie />
-          {/* <img src={Maka} className="row-one-image-maka" /> */}
-          <button className="noti-button">누구보다 빠르게 출시 알림 받기</button>
-        </div>
-        <ScrollDownIcon>
-          <MdKeyboardDoubleArrowDown />
-        </ScrollDownIcon>
+        {/* tablet */}
+        <RowOneTablet />
+
+        {/* mobile */}
+        <RowOneMobile />
       </Container>
     </RowContainer>
   );
 };
 
 export default RowOne;
+
+const RowOneDesktop = () => {
+  return (
+    <Desktop>
+      <div className="title-container">
+        <Text color="white" fontSize="82px" weight="bold" lineHeight="97px">
+          이야기와 술을
+          <div className="bubble-image">
+            <img src={SuldakBubble} />
+          </div>
+        </Text>
+        <Text color="white" fontSize="82px" weight="bold" lineHeight="97px">
+          나누는 곳, 술닥술닥
+        </Text>
+      </div>
+
+      <Text
+        color="white"
+        fontSize="28px"
+        weight="bold"
+        letterSpacing="-0.3%"
+        lineHeight="36px"
+        textAlign="center"
+      >
+        술 한잔 하고 싶다! 나만을 위한 추천 술과 곁들일 이야기를 찾아봐요
+      </Text>
+      <div className="noti-box">
+        <MakaLottie />
+        <Button
+          color="white"
+          bgColor="#0f4448"
+          padding="24px 160px"
+          borderRadius="5rem"
+          fontSize="20px"
+          fontWeight="bold"
+          zIndex="2"
+        >
+          누구보다 빠르게 출시 알림 받기
+        </Button>
+      </div>
+      <ScrollDownIcon>
+        <MdKeyboardDoubleArrowDown />
+      </ScrollDownIcon>
+    </Desktop>
+  );
+};
+const RowOneTablet = () => {
+  return (
+    <Tablet>
+      <div className="title-container">
+        <Text color="white" fontSize="68px" weight="bold" lineHeight="80px">
+          이야기와 술을
+          <div className="bubble-image">
+            <img src={SuldakBubble} />
+          </div>
+        </Text>
+        <Text color="white" fontSize="68px" weight="bold" lineHeight="80px">
+          나누는 곳, 술닥술닥
+        </Text>
+      </div>
+      <Text
+        color="white"
+        fontSize="28px"
+        weight="bold"
+        letterSpacing="-0.3%"
+        lineHeight="36px"
+        textAlign="center"
+      >
+        술 한잔 하고 싶다! 나만을 위한 추천 술과 곁들일 이야기를 찾아봐요
+      </Text>
+      <div className="noti-box">
+        <MakaLottie />
+        <Button
+          color="white"
+          bgColor="#0f4448"
+          padding="24px 160px"
+          borderRadius="5rem"
+          fontSize="20px"
+          fontWeight="bold"
+          zIndex="2"
+        >
+          누구보다 빠르게 출시 알림 받기
+        </Button>
+      </div>
+      <ScrollDownIcon>
+        <MdKeyboardDoubleArrowDown />
+      </ScrollDownIcon>
+    </Tablet>
+  );
+};
+const RowOneMobile = () => {
+  return (
+    <Mobile>
+      <div className="title-container">
+        <Text color="white" fontSize="60px" weight="bold" lineHeight="70px">
+          이야기와 술을
+          <div className="bubble-image">
+            <img src={SuldakBubble} />
+          </div>
+        </Text>
+        <Text color="white" fontSize="60px" weight="bold" lineHeight="70px">
+          나누는 곳, 술닥술닥
+        </Text>
+      </div>
+      <Text
+        color="white"
+        fontSize="24px"
+        weight="bold"
+        letterSpacing="-0.3%"
+        lineHeight="36px"
+        textAlign="center"
+      >
+        술 한잔 하고 싶다! 나만을 위한 추천 술과 곁들일 이야기를 찾아봐요
+      </Text>
+      <div className="noti-box">
+        <MakaLottie />
+        <Button
+          color="white"
+          bgColor="#0f4448"
+          padding="24px 120px"
+          borderRadius="5rem"
+          fontSize="20px"
+          fontWeight="bold"
+          zIndex="2"
+        >
+          누구보다 빠르게 출시 알림 받기
+        </Button>
+      </div>
+      <ScrollDownIcon>
+        <MdKeyboardDoubleArrowDown />
+      </ScrollDownIcon>
+    </Mobile>
+  );
+};
 
 // animations
 const moveTop = keyframes`
@@ -88,18 +214,6 @@ const Container = styled.div`
   background-color: ${Color.suldakBlue};
   padding: 100px 20px;
 
-  @media ${({ theme }) => theme.device.desktop} {
-    background-color: ${Color.suldakIvory};
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    background-color: ${Color.suldakOrange};
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    background-color: ${Color.suldakYellow};
-  }
-
   .bubble-image {
     position: absolute;
     transform: translate(105%, -65%);
@@ -109,10 +223,6 @@ const Container = styled.div`
     animation-delay: 600ms;
     animation-iteration-count: 1;
     animation-name: ${scaleChange};
-
-    @media ${({ theme }) => theme.device.tablet} {
-      transform: translate(150px, -200px);
-    }
   }
 
   .title-container {
@@ -127,16 +237,6 @@ const Container = styled.div`
       font-size: 82px;
       font-weight: bold;
       line-height: 97px;
-
-      @media ${({ theme }) => theme.device.desktop} {
-        font-size: 72px;
-        line-height: 85px;
-      }
-
-      @media ${({ theme }) => theme.device.tablet} {
-        font-size: 62px;
-        line-height: 75px;
-      }
     }
   }
   .sub-title {
@@ -146,16 +246,6 @@ const Container = styled.div`
     letter-spacing: -0.3%;
     line-height: 36px;
     text-align: center;
-
-    @media ${({ theme }) => theme.device.desktop} {
-      font-size: 25px;
-      line-height: 31px;
-    }
-
-    @media ${({ theme }) => theme.device.tablet} {
-      font-size: 18;
-      line-height: 26px;
-    }
   }
 
   .row-one-image-maka {
@@ -185,10 +275,6 @@ const Container = styled.div`
 
       &:hover {
         cursor: pointer;
-      }
-
-      @media ${({ theme }) => theme.device.tablet} {
-        font-size: 16px;
       }
     }
   }

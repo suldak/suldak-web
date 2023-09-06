@@ -7,8 +7,12 @@ import Roni from '@assets/images/row-two-roni.svg';
 import RoniTalk from '@assets/images/row-two-talk.svg';
 import RowTwoImageOne from '@assets/images/row-two-image1.svg';
 
+// responsive
+import { Desktop, Tablet, Mobile } from '@hooks/useResponsive';
+
 // components
 import RowContainer from '@components/RowContainer';
+import Text from '@components/Text';
 
 const RowTwo = () => {
   const [shouldRenderInner, setShouldRenderInner] = useState(false);
@@ -27,27 +31,53 @@ const RowTwo = () => {
       <Container ref={ref}>
         {shouldRenderInner && (
           <>
-            <div className="title-container">
-              <span className="title">취향저격 술추천</span>
-              <div className="sub-title-container">
-                <span className="sub-title">현재 나의 기분이나 생각나는 술을 검색하면</span>
-                <span className="sub-title">지금 나에게 딱 맞는 술을 추천해요.</span>
-              </div>
-            </div>
-            <div className="row-two-image-box">
-              <span className="row-two-image-des">
-                *개발중인 화면으로 UI 등은 변경될 수 있습니다.
-              </span>
-              <img className="row-two-image-one" src={RowTwoImageOne} />
-            </div>
-            <div className="row-two-roni-box">
-              <img src={RoniTalk} className="row-two-image-roni-talk" />
-              <img src={Roni} className="row-two-image-roni" />
-            </div>
+            {/* desktop */}
+            <RowTwoDesktop />
+
+            {/* tablet */}
+            {/* mobile */}
           </>
         )}
       </Container>
     </RowContainer>
+  );
+};
+
+const RowTwoDesktop = () => {
+  return (
+    <Desktop>
+      <div className="title-container">
+        <Text
+          color={Color.textColor}
+          fontSize="52px"
+          weight="bold"
+          margin="0 0 15px 0"
+          animate
+          animateDelay="600ms"
+          animateDuration="900ms"
+        >
+          취향저격 술추천
+        </Text>
+        <div className="sub-title-container">
+          <Text fontSize="18px" weight="medium" textAlign="left">
+            현재 나의 기분이나 생각나는 술을 검색하면
+          </Text>
+          <Text fontSize="18px" weight="medium" textAlign="left">
+            지금 나에게 딱 맞는 술을 추천해요.
+          </Text>
+        </div>
+      </div>
+      <div className="row-two-image-box">
+        <Text fontSize="12px" color="#8e8e8e" margin="0 0 10px 0">
+          *개발중인 화면으로 UI 등은 변경될 수 있습니다.
+        </Text>
+        <img className="row-two-image-one" src={RowTwoImageOne} />
+      </div>
+      <div className="row-two-roni-box">
+        <img src={RoniTalk} className="row-two-image-roni-talk" />
+        <img src={Roni} className="row-two-image-roni" />
+      </div>
+    </Desktop>
   );
 };
 
@@ -119,10 +149,6 @@ const Container = styled.div`
     .row-two-image-one {
       width: 300px;
       z-index: 1;
-
-      @media ${({ theme }) => theme.device.desktop} {
-        width: 200px;
-      }
     }
   }
 
@@ -131,11 +157,11 @@ const Container = styled.div`
     flex-direction: column;
     transform: translate(120px, 170px);
 
-    animation-fill-mode: both;
+    /* animation-fill-mode: both;
     animation-duration: 900ms;
     animation-delay: 1500ms;
     animation-iteration-count: 1;
-    animation-name: ${moveTopRoni};
+    animation-name: ${moveTopRoni}; */
 
     .row-two-image-roni {
       z-index: 2;
@@ -152,21 +178,6 @@ const Container = styled.div`
       font-weight: bold;
       color: ${Color.textColor};
       margin-bottom: 20px;
-
-      // desktop
-      @media ${({ theme }) => theme.device.desktop} {
-        font-size: 42px;
-      }
-
-      // tablet
-      @media ${({ theme }) => theme.device.tablet} {
-        font-size: 32px;
-      }
-
-      // mobile
-      @media ${({ theme }) => theme.device.mobile} {
-        font-size: 22px;
-      }
 
       animation-fill-mode: both;
       animation-duration: 900ms;
