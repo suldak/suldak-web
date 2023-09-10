@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
-import styled, { keyframes } from 'styled-components';
-import { Color } from '@styles/Colors';
+import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import styled, { keyframes } from "styled-components";
+import { Color } from "@styles/Colors";
 
 // image & icon
-import Cocktail from '@assets/images/cocktail.svg';
+import Cocktail from "@assets/images/cocktail.svg";
 
 // components
-import RowContainer from '@components/RowContainer';
-import Input from '@components/Input';
+import RowContainer from "@components/RowContainer";
+import Input from "@components/Input";
 
 // hooks
-import useInput from '@hooks/useInput';
+import useInput from "@hooks/useInput";
+import { Desktop, Tablet, Mobile } from "@hooks/useResponsive";
 
 const RowFour = () => {
   const [shouldRenderInner, setShouldRenderInner] = useState(false);
@@ -24,7 +25,7 @@ const RowFour = () => {
       setShouldRenderInner(true);
     }
   }, [inView]);
-  const emailInput = useInput('');
+  const emailInput = useInput("");
 
   // email 전송
   const submitEamil = () => {
@@ -36,7 +37,9 @@ const RowFour = () => {
       <Container ref={ref}>
         {shouldRenderInner && (
           <>
-            <span className="title">술닥술닥이 출시될 때 가장 먼저 알려드릴게요!</span>
+            <span className="title">
+              술닥술닥이 출시될 때 가장 먼저 알려드릴게요!
+            </span>
 
             <div className="submit-box">
               <Input value={emailInput.value} onChange={emailInput.onChange} />

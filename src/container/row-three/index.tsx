@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
-import styled, { keyframes } from 'styled-components';
-import { Color } from '@styles/Colors';
+import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import styled, { keyframes } from "styled-components";
+import { Color } from "@styles/Colors";
 
 // image & icon
-import RowThreeImageOne from '@assets/images/row-three-image1.svg';
-import RowThreeImageTwo from '@assets/images/row-three-image2.svg';
-import RowThreeImageThree from '@assets/images/row-three-image3.svg';
-import Maka from '@assets/images/row-three-maka.svg';
-import MakaTalk from '@assets/images/row-three-talk.svg';
+import RowThreeImageOne from "@assets/images/row-three-image1.svg";
+import RowThreeImageTwo from "@assets/images/row-three-image2.svg";
+import RowThreeImageThree from "@assets/images/row-three-image3.svg";
+import Maka from "@assets/images/row-three-maka.svg";
+import MakaTalk from "@assets/images/row-three-talk.svg";
+
+// responsive
+import { Desktop, Tablet, Mobile } from "@hooks/useResponsive";
 
 // components
-import RowContainer from '@components/RowContainer';
+import RowContainer from "@components/RowContainer";
+import Text from "@components/Text";
 
 const RowThree = () => {
   const [shouldRenderInner, setShouldRenderInner] = useState(false);
@@ -29,25 +33,51 @@ const RowThree = () => {
       <Container ref={ref}>
         {shouldRenderInner && (
           <>
-            <div className="title-box">
-              <span className="title">술친구 만들기</span>
-              <span className="sub-title">
-                나누고 싶은 이야기 주제를 선택해 모임에 참여해요. 내가 모임을 만들 수도 있어요.
-              </span>
-            </div>
-            <div className="row-three-image-box">
-              <img className="row-three-image one" src={RowThreeImageOne} />
-              <img className="row-three-image two" src={RowThreeImageTwo} />
-              <img className="row-three-image three" src={RowThreeImageThree} />
-            </div>
-            <div className="row-two-maka-box">
-              <img className="row-three-image-maka-talk" src={MakaTalk} />
-              <img className="row-three-image-maka" src={Maka} />
-            </div>
+            {/* desktop */}
+            <RowThreeDesktop />
           </>
         )}
       </Container>
     </RowContainer>
+  );
+};
+
+const RowThreeDesktop = () => {
+  return (
+    <Desktop>
+      <div className="title-box">
+        <Text
+          fontSize="52px"
+          weight="bold"
+          color="#090909"
+          animate
+          animateDelay="600ms"
+          animateDuration="900ms"
+        >
+          술친구 만들기
+        </Text>
+        <Text
+          fontSize="18px"
+          weight="medium"
+          color="#090909"
+          animate
+          animateDelay="900ms"
+          animateDuration="900ms"
+        >
+          나누고 싶은 이야기 주제를 선택해 모임에 참여해요. 내가 모임을 만들
+          수도 있어요.
+        </Text>
+      </div>
+      <div className="row-three-image-box">
+        <img className="row-three-image one" src={RowThreeImageOne} />
+        <img className="row-three-image two" src={RowThreeImageTwo} />
+        <img className="row-three-image three" src={RowThreeImageThree} />
+      </div>
+      <div className="row-two-maka-box">
+        <img className="row-three-image-maka-talk" src={MakaTalk} />
+        <img className="row-three-image-maka" src={Maka} />
+      </div>
+    </Desktop>
   );
 };
 
@@ -150,7 +180,7 @@ const Container = styled.div`
     gap: 50px;
 
     .row-three-image {
-      width: 300px;
+      width: 20%;
     }
   }
 

@@ -1,18 +1,18 @@
-import styled, { keyframes } from 'styled-components';
-import { Color } from '@styles/Colors';
-import { MdKeyboardDoubleArrowDown } from 'react-icons/md';
+import styled, { keyframes } from "styled-components";
+import { Color } from "@styles/Colors";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 // responsive
-import { Desktop, Tablet, Mobile } from '@hooks/useResponsive';
+import { Desktop, Tablet, Mobile } from "@hooks/useResponsive";
 
 // image & icon
-import SuldakBubble from '@assets/images/suldak-bubble.svg';
-import MakaLottie from '@components/MakaLottie';
+import SuldakBubble from "@assets/images/suldak-bubble.svg";
+import MakaLottie from "@components/MakaLottie";
 
 // components
-import RowContainer from '@components/RowContainer';
-import Text from '@components/Text';
-import Button from '@components/Button';
+import RowContainer from "@components/RowContainer";
+import Text from "@components/Text";
+import Button from "@components/Button";
 
 const RowOne = () => {
   return (
@@ -126,22 +126,22 @@ const RowOneMobile = () => {
   return (
     <Mobile>
       <div className="title-container">
-        <Text color="white" fontSize="60px" weight="bold" lineHeight="70px">
+        <Text color="white" fontSize="40px" weight="bold" lineHeight="45px">
           이야기와 술을
           <div className="bubble-image">
             <img src={SuldakBubble} />
           </div>
         </Text>
-        <Text color="white" fontSize="60px" weight="bold" lineHeight="70px">
+        <Text color="white" fontSize="40px" weight="bold" lineHeight="45px">
           나누는 곳, 술닥술닥
         </Text>
       </div>
       <Text
         color="white"
-        fontSize="24px"
+        fontSize="16px"
         weight="bold"
         letterSpacing="-0.3%"
-        lineHeight="36px"
+        lineHeight="22px"
         textAlign="center"
       >
         술 한잔 하고 싶다! 나만을 위한 추천 술과 곁들일 이야기를 찾아봐요
@@ -151,7 +151,7 @@ const RowOneMobile = () => {
         <Button
           color="white"
           bgColor="#0f4448"
-          padding="24px 120px"
+          padding="24px 80px"
           borderRadius="5rem"
           fontSize="20px"
           fontWeight="bold"
@@ -160,7 +160,7 @@ const RowOneMobile = () => {
           누구보다 빠르게 출시 알림 받기
         </Button>
       </div>
-      <ScrollDownIcon>
+      <ScrollDownIcon bottom="10px">
         <MdKeyboardDoubleArrowDown />
       </ScrollDownIcon>
     </Mobile>
@@ -280,9 +280,9 @@ const Container = styled.div`
   }
 `;
 
-const ScrollDownIcon = styled.div`
+const ScrollDownIcon = styled.div<{ bottom?: string }>`
   position: absolute;
-  bottom: 30px;
+  bottom: ${({ bottom }) => (bottom ? bottom : "30px")};
   color: white;
   font-size: 48px;
 
