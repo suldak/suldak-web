@@ -7,6 +7,7 @@ import { Color } from "@styles/Colors";
 import RowThreeImageOne from "@assets/images/row-three-image1.svg";
 import RowThreeImageTwo from "@assets/images/row-three-image2.svg";
 import RowThreeImageThree from "@assets/images/row-three-image3.svg";
+import RowThreeMobileImage from "@assets/images/row-three-mobile-image.svg";
 import Maka from "@assets/images/row-three-maka.svg";
 import MakaTalk from "@assets/images/row-three-talk.svg";
 
@@ -35,6 +36,9 @@ const RowThree = () => {
           <>
             {/* desktop */}
             <RowThreeDesktop />
+
+            {/* mobile */}
+            <RowThreeMobile />
           </>
         )}
       </Container>
@@ -78,6 +82,55 @@ const RowThreeDesktop = () => {
         <img className="row-three-image-maka" src={Maka} />
       </div>
     </Desktop>
+  );
+};
+
+const RowThreeMobile = () => {
+  return (
+    <Mobile>
+      <div className="title-box">
+        <Text
+          fontSize="26px"
+          weight="bold"
+          color="#090909"
+          animate
+          animateDelay="600ms"
+          animateDuration="900ms"
+        >
+          술친구 만들기
+        </Text>
+        <Text
+          fontSize="15px"
+          weight="medium"
+          color="#090909"
+          animate
+          animateDelay="900ms"
+          animateDuration="900ms"
+        >
+          나누고 싶은 이야기 주제를 선택해 모임에 참여해요.
+        </Text>
+        <Text
+          fontSize="15px"
+          weight="medium"
+          color="#090909"
+          animate
+          animateDelay="900ms"
+          animateDuration="900ms"
+        >
+          내가 모임을 만들 수도 있어요.
+        </Text>
+      </div>
+      <div className="row-three-image-box-mobile">
+        <img className="row-three-mobile-image" src={RowThreeMobileImage} />
+        <Text color="rgba(0,0,0,0.3)" fontSize="11px">
+          *개발중인 화면으로 UI등은 변경될 수 있습니다.
+        </Text>
+      </div>
+      <div className="row-two-maka-box">
+        <img className="row-three-image-maka-talk" src={MakaTalk} />
+        <img className="row-three-image-maka" src={Maka} />
+      </div>
+    </Mobile>
   );
 };
 
@@ -182,6 +235,18 @@ const Container = styled.div`
     .row-three-image {
       width: 20%;
     }
+
+    .row-three-mobile-image {
+      width: 80%;
+    }
+  }
+
+  .row-three-image-box-mobile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
   }
 
   .row-two-maka-box {
