@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import styled, { keyframes } from "styled-components";
-import { Color } from "@styles/Colors";
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import styled, { keyframes } from 'styled-components';
+import { Color } from '@styles/Colors';
 
-import Roni from "@assets/images/row-two-roni.svg";
-import RoniTalk from "@assets/images/row-two-talk.svg";
-import RowTwoImageOne from "@assets/images/row-two-image1.svg";
+import Roni from '@assets/images/row-two-roni.svg';
+import RoniTalk from '@assets/images/row-two-talk.svg';
+import RowTwoImageOne from '@assets/images/row-two-image1.svg';
 
 // responsive
-import { Desktop, Tablet, Mobile } from "@hooks/useResponsive";
+import { Desktop, Tablet, Mobile } from '@hooks/useResponsive';
 
 // components
-import RowContainer from "@components/RowContainer";
-import Text from "@components/Text";
+import RowContainer from '@components/RowContainer';
+import Text from '@components/Text';
 
 const RowTwo = () => {
   const [shouldRenderInner, setShouldRenderInner] = useState(false);
@@ -190,20 +190,22 @@ const moveTopMobileImage = keyframes`
 const moveTopRoni = keyframes`
   0% {
     opacity: 0;
-    transform: translate(0px, 190px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translate(0px, 100px);
+    transform: translateY(0px);
   }
 `;
 
 const MobileContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px 0 0 0;
+  padding: 0px 0 300px 0;
+  min-height: 1100px;
 
   .sub-title-container {
     display: flex;
@@ -229,13 +231,13 @@ const MobileContainer = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transform: translate(0px, 50px) !important;
+    transform: translate(0px) !important;
 
     animation-fill-mode: both;
     animation-duration: 900ms;
     animation-delay: 1200ms;
     animation-iteration-count: 1;
-    animation-name: ${moveTopMobileImage};
+    animation-name: ${moveTopRoni};
 
     .row-two-image-des {
       font-size: 12px;
@@ -244,8 +246,7 @@ const MobileContainer = styled.div`
     }
 
     .row-two-image-one {
-      /* width: 300px; */
-      width: 60% !important;
+      width: 45% !important;
       z-index: 1;
     }
   }
@@ -253,7 +254,10 @@ const MobileContainer = styled.div`
   .row-two-roni-box {
     display: flex;
     flex-direction: column;
-    transform: translate(0px, 0px) !important;
+    position: absolute;
+    bottom: -65px !important;
+    width: 60%;
+    right: auto !important;
 
     animation-fill-mode: both;
     animation-duration: 900ms;
@@ -268,13 +272,13 @@ const MobileContainer = styled.div`
 `;
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 100%;
-  /* height: 600px; */
-  /* height: 100%; */
+  min-height: 800px;
   background-color: white;
 
   .row-two-image-box {
@@ -297,17 +301,17 @@ const Container = styled.div`
     }
 
     .row-two-image-one {
-      /* width: 300px; */
       width: 40%;
       z-index: 1;
     }
   }
 
   .row-two-roni-box {
+    position: absolute;
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    /* width: 20%; */
-    transform: translate(0px, 170px);
+    right: 5%;
 
     animation-fill-mode: both;
     animation-duration: 900ms;

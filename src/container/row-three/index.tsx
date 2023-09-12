@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import styled, { keyframes } from "styled-components";
-import { Color } from "@styles/Colors";
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import styled, { keyframes } from 'styled-components';
+import { Color } from '@styles/Colors';
 
 // image & icon
-import RowThreeImageOne from "@assets/images/row-three-image1.svg";
-import RowThreeImageTwo from "@assets/images/row-three-image2.svg";
-import RowThreeImageThree from "@assets/images/row-three-image3.svg";
-import RowThreeMobileImage from "@assets/images/row-three-mobile-image.svg";
-import Maka from "@assets/images/row-three-maka.svg";
-import MakaTalk from "@assets/images/row-three-talk.svg";
+import RowThreeImageOne from '@assets/images/row-three-image1.svg';
+import RowThreeImageTwo from '@assets/images/row-three-image2.svg';
+import RowThreeImageThree from '@assets/images/row-three-image3.svg';
+import RowThreeMobileImage from '@assets/images/row-three-mobile-image.svg';
+import Maka from '@assets/images/row-three-maka.svg';
+import MakaTalk from '@assets/images/row-three-talk.svg';
 
 // responsive
-import { Desktop, Tablet, Mobile } from "@hooks/useResponsive";
+import { Desktop, Tablet, Mobile } from '@hooks/useResponsive';
 
 // components
-import RowContainer from "@components/RowContainer";
-import Text from "@components/Text";
+import RowContainer from '@components/RowContainer';
+import Text from '@components/Text';
 
 const RowThree = () => {
   const [shouldRenderInner, setShouldRenderInner] = useState(false);
@@ -68,8 +68,7 @@ const RowThreeDesktop = () => {
           animateDelay="900ms"
           animateDuration="900ms"
         >
-          나누고 싶은 이야기 주제를 선택해 모임에 참여해요. 내가 모임을 만들
-          수도 있어요.
+          나누고 싶은 이야기 주제를 선택해 모임에 참여해요. 내가 모임을 만들 수도 있어요.
         </Text>
       </div>
       <div className="row-three-image-box">
@@ -126,7 +125,7 @@ const RowThreeMobile = () => {
           *개발중인 화면으로 UI등은 변경될 수 있습니다.
         </Text>
       </div>
-      <div className="row-two-maka-box">
+      <div className="row-two-maka-box-mobile">
         <img className="row-three-image-maka-talk" src={MakaTalk} />
         <img className="row-three-image-maka" src={Maka} />
       </div>
@@ -150,11 +149,11 @@ const moveTop = keyframes`
 const moveTopMaka = keyframes`
   0% {
     opacity: 0;
-    transform: translate(530px, 390px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translate(530px, 320px);
+    transform: translateY(0);
   }
 `;
 
@@ -167,7 +166,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 1000px;
+  min-height: 700px;
   background-color: #f3e9a3;
   padding: 130px 0;
 
@@ -254,7 +253,29 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    transform: translate(530px, 320px);
+    bottom: 0;
+    right: 5%;
+    width: 30%;
+
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 2100ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTopMaka};
+
+    .row-three-image-maka {
+      z-index: 1;
+    }
+  }
+
+  .row-two-maka-box-mobile {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    bottom: 0;
+    width: 50%;
+    transform: scaleX(-1);
 
     animation-fill-mode: both;
     animation-duration: 900ms;
