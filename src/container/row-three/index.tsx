@@ -37,6 +37,9 @@ const RowThree = () => {
             {/* desktop */}
             <RowThreeDesktop />
 
+            {/* tablet */}
+            <RowThreeTablet />
+
             {/* mobile */}
             <RowThreeMobile />
           </>
@@ -81,6 +84,55 @@ const RowThreeDesktop = () => {
         <img className="row-three-image-maka" src={Maka} />
       </div>
     </Desktop>
+  );
+};
+
+const RowThreeTablet = () => {
+  return (
+    <Tablet>
+      <div className="title-box">
+        <Text
+          fontSize="26px"
+          weight="bold"
+          color="#090909"
+          animate
+          animateDelay="600ms"
+          animateDuration="900ms"
+        >
+          술친구 만들기
+        </Text>
+        <Text
+          fontSize="15px"
+          weight="medium"
+          color="#090909"
+          animate
+          animateDelay="900ms"
+          animateDuration="900ms"
+        >
+          나누고 싶은 이야기 주제를 선택해 모임에 참여해요.
+        </Text>
+        <Text
+          fontSize="15px"
+          weight="medium"
+          color="#090909"
+          animate
+          animateDelay="900ms"
+          animateDuration="900ms"
+        >
+          내가 모임을 만들 수도 있어요.
+        </Text>
+      </div>
+      <div className="row-three-image-box-mobile">
+        <img className="row-three-mobile-image" src={RowThreeMobileImage} />
+        <Text color="rgba(0,0,0,0.3)" fontSize="11px">
+          *개발중인 화면으로 UI등은 변경될 수 있습니다.
+        </Text>
+      </div>
+      <div className="row-two-maka-box-mobile">
+        <img className="row-three-image-maka-talk" src={MakaTalk} />
+        <img className="row-three-image-maka" src={Maka} />
+      </div>
+    </Tablet>
   );
 };
 
@@ -166,9 +218,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 700px;
+  min-height: 900px;
   background-color: #f3e9a3;
-  padding: 130px 0;
+  padding: 0 0 200px 0;
 
   .one {
     animation-fill-mode: both;
@@ -232,7 +284,7 @@ const Container = styled.div`
     gap: 50px;
 
     .row-three-image {
-      width: 20%;
+      width: 200px;
     }
 
     .row-three-mobile-image {
@@ -274,7 +326,7 @@ const Container = styled.div`
     flex-direction: column;
     gap: 20px;
     bottom: 0;
-    width: 50%;
+    width: 300px;
     transform: scaleX(-1);
 
     animation-fill-mode: both;

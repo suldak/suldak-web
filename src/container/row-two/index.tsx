@@ -87,10 +87,10 @@ const RowTwoDesktop = () => {
 const RowTwoTablet = () => {
   return (
     <Tablet>
-      <div className="title-container">
+      <MobileContainer>
         <Text
           color={Color.textColor}
-          fontSize="42px"
+          fontSize="26px"
           weight="bold"
           margin="0 0 15px 0"
           animate
@@ -100,25 +100,25 @@ const RowTwoTablet = () => {
           취향저격 술추천
         </Text>
         <div className="sub-title-container">
-          <Text fontSize="16px" weight="medium" textAlign="left">
+          <Text fontSize="15px" weight="medium" textAlign="center">
             현재 나의 기분이나 생각나는 술을 검색하면
           </Text>
-          <Text fontSize="16px" weight="medium" textAlign="left">
+          <Text fontSize="15px" weight="medium" textAlign="center">
             지금 나에게 딱 맞는 술을 추천해요.
           </Text>
         </div>
-      </div>
 
-      <div className="row-two-image-box">
-        <Text fontSize="12px" color="#8e8e8e" margin="0 0 10px 0">
-          *개발중인 화면으로 UI 등은 변경될 수 있습니다.
-        </Text>
-        <img className="row-two-image-one" src={RowTwoImageOne} />
-      </div>
-      <div className="row-two-roni-box">
-        <img src={RoniTalk} className="row-two-image-roni-talk" />
-        <img src={Roni} className="row-two-image-roni" />
-      </div>
+        <div className="row-two-image-box-mobile">
+          <Text fontSize="12px" color="#8e8e8e" margin="0 0 10px 0">
+            *개발중인 화면으로 UI 등은 변경될 수 있습니다.
+          </Text>
+          <img className="row-two-image-one" src={RowTwoImageOne} />
+        </div>
+        <div className="row-two-roni-box">
+          <img src={RoniTalk} className="row-two-image-roni-talk" />
+          <img src={Roni} className="row-two-image-roni" />
+        </div>
+      </MobileContainer>
     </Tablet>
   );
 };
@@ -147,7 +147,7 @@ const RowTwoMobile = () => {
           </Text>
         </div>
 
-        <div className="row-two-image-box">
+        <div className="row-two-image-box-mobile">
           <Text fontSize="12px" color="#8e8e8e" margin="0 0 10px 0">
             *개발중인 화면으로 UI 등은 변경될 수 있습니다.
           </Text>
@@ -226,12 +226,11 @@ const MobileContainer = styled.div`
     }
   }
 
-  .row-two-image-box {
+  .row-two-image-box-mobile {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transform: translate(0px) !important;
 
     animation-fill-mode: both;
     animation-duration: 900ms;
@@ -246,7 +245,7 @@ const MobileContainer = styled.div`
     }
 
     .row-two-image-one {
-      width: 45% !important;
+      width: 200px !important;
       z-index: 1;
     }
   }
@@ -256,7 +255,7 @@ const MobileContainer = styled.div`
     flex-direction: column;
     position: absolute;
     bottom: -65px !important;
-    width: 60%;
+    width: 300px;
     right: auto !important;
 
     animation-fill-mode: both;

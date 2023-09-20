@@ -1,7 +1,7 @@
 import { createGlobalStyle, keyframes } from 'styled-components';
 
 // fonts
-// import PretendardBold from '@assets/fonts/Pretendard-Bold.otf'
+// import PretendardLight from './fonts/Pretendard-Light.woff'
 
 // animations
 const fadeIn = keyframes`
@@ -17,18 +17,18 @@ const fadeIn = keyframes`
 `;
 
 const GlobalStyle = createGlobalStyle`
-  /* @font-face {
-    font-family: 'Pretendard-Bold';
-    src: local('Pretendard-Bold');
-    font-style: normal;
-  } */
+  @font-face {
+    font-family: 'Pretendard-Light';
+    src: url('./fonts/Pretendard-Light.woff') format('woff');
+    /* font-style: normal; */
+  }
 
   *, *::before, *::after {
     box-sizing: border-box;
   }
 
   body {
-    font-family: "Helvetica", "Arial", sans-serif;
+    font-family: "Pretendard-Light", "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
     width: 100%;
     background-color: white;
