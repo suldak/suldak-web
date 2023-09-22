@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import styled, { keyframes } from "styled-components";
-import { Color } from "@styles/Colors";
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import styled, { keyframes } from 'styled-components';
+import axios from 'axios';
+import { Color } from '@styles/Colors';
 
 // image & icon
-import Cocktail from "@assets/images/cocktail.svg";
+import Cocktail from '@assets/images/cocktail.svg';
 
 // components
-import RowContainer from "@components/RowContainer";
-import Input from "@components/Input";
-import Text from "@components/Text";
+import RowContainer from '@components/RowContainer';
+import Input from '@components/Input';
+import Text from '@components/Text';
 
 // hooks
-import useInput from "@hooks/useInput";
-import { Desktop, Tablet, Mobile } from "@hooks/useResponsive";
+import useInput from '@hooks/useInput';
+import { Desktop, Tablet, Mobile } from '@hooks/useResponsive';
 
 const RowFour = () => {
   const [shouldRenderInner, setShouldRenderInner] = useState(false);
@@ -26,11 +27,28 @@ const RowFour = () => {
       setShouldRenderInner(true);
     }
   }, [inView]);
-  const emailInput = useInput("");
+  const emailInput = useInput('');
 
   // email 전송
-  const submitEamil = () => {
-    console.log(emailInput.value);
+  const submitEamil = async () => {
+    if (emailInput.value === '') {
+      window.alert('이메일을 입력해주세요');
+      return;
+    }
+
+    const response = await axios.post(`http://122.45.203.134:8081/api/reservation/user`, {
+      userEmail: emailInput.value,
+    });
+    if (response.data.errorCode === 200) {
+      window.alert('사전예약에 성공적으로 참여했습니다');
+      return;
+    } else if (response.data.errorCode === 10000) {
+      window.alert('이미 등록된 이메일입니다');
+      return;
+    } else {
+      window.alert('사전예약에 실패했습니다');
+      return;
+    }
   };
 
   return (
@@ -63,16 +81,10 @@ interface IProps {
   emailOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmitEmail: () => void;
 }
-const RowFourDesktop = ({
-  emailValue,
-  emailOnChange,
-  onSubmitEmail,
-}: IProps) => {
+const RowFourDesktop = ({ emailValue, emailOnChange, onSubmitEmail }: IProps) => {
   return (
     <Desktop>
-      <span className="title">
-        술닥술닥이 출시될 때 가장 먼저 알려드릴게요!
-      </span>
+      <span className="title">술닥술닥이 출시될 때 가장 먼저 알려드릴게요!</span>
 
       <div className="submit-box">
         <Input value={emailValue} onChange={emailOnChange} />
@@ -84,11 +96,22 @@ const RowFourDesktop = ({
   );
 };
 
-const RowFourMobile = ({
-  emailValue,
-  emailOnChange,
-  onSubmitEmail,
-}: IProps) => {
+const RowFourTablet = ({ emailValue, emailOnChange, onSubmitEmail }: IProps) => {
+  return (
+    <Desktop>
+      <span className="title">술닥술닥이 출시될 때 가장 먼저 알려드릴게요!</span>
+
+      <div className="submit-box">
+        <Input value={emailValue} onChange={emailOnChange} />
+        <SubmitButton onClick={onSubmitEmail}>확인</SubmitButton>
+      </div>
+      <img className="cocktail" src={Cocktail} />
+      <Floor />
+    </Desktop>
+  );
+};
+
+const RowFourMobile = ({ emailValue, emailOnChange, onSubmitEmail }: IProps) => {
   return (
     <Mobile>
       <div className="mobile-wrap">
@@ -151,7 +174,7 @@ const moveTopCocktail = keyframes`
 `;
 const Floor = styled.div<{ isMobile?: boolean }>`
   width: 100%;
-  height: ${({ isMobile }) => (isMobile ? "200px" : "400px")};
+  height: ${({ isMobile }) => (isMobile ? '200px' : '400px')};
   border-radius: 30%;
   transform: translate(0, 50px);
   background-color: #b09f8b;
