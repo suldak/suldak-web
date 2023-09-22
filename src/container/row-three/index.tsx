@@ -298,6 +298,12 @@ const Container = styled.div`
     flex-direction: column;
     width: 100%;
     gap: 20px;
+
+    animation-fill-mode: both;
+    animation-duration: 900ms;
+    animation-delay: 1200ms;
+    animation-iteration-count: 1;
+    animation-name: ${moveTop};
   }
 
   .row-two-maka-box {
@@ -331,7 +337,7 @@ const Container = styled.div`
 
     animation-fill-mode: both;
     animation-duration: 900ms;
-    animation-delay: 2100ms;
+    animation-delay: 1500ms;
     animation-iteration-count: 1;
     animation-name: ${moveTopMaka};
 
