@@ -36,9 +36,17 @@ const RowFour = () => {
       return;
     }
 
-    const response = await axios.post(`http://122.45.203.134:8081/api/reservation/user`, {
-      userEmail: emailInput.value,
-    });
+    const response = await axios.post(
+      `http://122.45.203.134:8081/api/reservation/user`,
+      {
+        userEmail: emailInput.value,
+      },
+      {
+        headers: {
+          Authorization: 'SULDAKSULDAK_KEY',
+        },
+      }
+    );
     if (response.data.errorCode === 200) {
       window.alert('사전예약에 성공적으로 참여했습니다');
       return;
@@ -58,6 +66,13 @@ const RowFour = () => {
           <>
             {/* Desktop */}
             <RowFourDesktop
+              emailValue={emailInput.value}
+              emailOnChange={emailInput.onChange}
+              onSubmitEmail={submitEamil}
+            />
+
+            {/* Tablet */}
+            <RowFourTablet
               emailValue={emailInput.value}
               emailOnChange={emailInput.onChange}
               onSubmitEmail={submitEamil}
@@ -98,16 +113,26 @@ const RowFourDesktop = ({ emailValue, emailOnChange, onSubmitEmail }: IProps) =>
 
 const RowFourTablet = ({ emailValue, emailOnChange, onSubmitEmail }: IProps) => {
   return (
-    <Desktop>
-      <span className="title">술닥술닥이 출시될 때 가장 먼저 알려드릴게요!</span>
-
-      <div className="submit-box">
-        <Input value={emailValue} onChange={emailOnChange} />
-        <SubmitButton onClick={onSubmitEmail}>확인</SubmitButton>
+    <Tablet>
+      <div className="mobile-wrap">
+        <div className="mobile-title-wrap">
+          <Text fontSize="26px" weight="bold">
+            술닥술닥이 출시될 때
+          </Text>
+          <Text fontSize="26px" weight="bold">
+            가장 먼저 알려드릴게요!
+          </Text>
+        </div>
+        <div className="mobile-submit-box">
+          <Input value={emailValue} onChange={emailOnChange} minWidth="400px" />
+          <SubmitButton onClick={onSubmitEmail} className="mobile-btn">
+            확인
+          </SubmitButton>
+        </div>
+        <img className="cocktail" src={Cocktail} />
+        <Floor isMobile={true} />
       </div>
-      <img className="cocktail" src={Cocktail} />
-      <Floor />
-    </Desktop>
+    </Tablet>
   );
 };
 
