@@ -179,11 +179,11 @@ const moveTop = keyframes`
 const moveTopMobileImage = keyframes`
   0% {
     opacity: 0;
-    transform: translate(100px, 120px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translate(100px, 100px);
+    transform: translateY(0px);
   }
 `;
 
@@ -278,6 +278,8 @@ const Container = styled.div`
 
   width: 100%;
   min-height: 800px;
+  max-height: 800px;
+  overflow: hidden;
   background-color: white;
 
   .row-two-image-box {
@@ -285,7 +287,8 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transform: translate(100px, 100px);
+    position: absolute;
+    bottom: -60px;
 
     animation-fill-mode: both;
     animation-duration: 900ms;
@@ -300,8 +303,9 @@ const Container = styled.div`
     }
 
     .row-two-image-one {
-      width: 40%;
+      /* width: 40%; */
       z-index: 1;
+      width: 300px;
     }
   }
 
@@ -310,7 +314,7 @@ const Container = styled.div`
     bottom: 0;
     display: flex;
     flex-direction: column;
-    right: 5%;
+    right: 7%;
 
     animation-fill-mode: both;
     animation-duration: 900ms;
@@ -327,6 +331,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: absolute;
+    left: 10%;
 
     .title {
       font-size: 52px;
