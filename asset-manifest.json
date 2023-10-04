@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/suldak-web/static/css/main.e6c13ad2.css",
+    "main.js": "/suldak-web/static/js/main.b17498ca.js",
+    "static/js/787.6ba275d1.chunk.js": "/suldak-web/static/js/787.6ba275d1.chunk.js",
+    "static/media/row-three-mobile-image.svg": "/suldak-web/static/media/row-three-mobile-image.ed1b3fcc44a962a9e9dc466a234cc4b0.svg",
+    "static/media/row-two-image1.svg": "/suldak-web/static/media/row-two-image1.5f154d1d3a82a31f6d411a083e82e4b3.svg",
+    "static/media/row-three-image1.svg": "/suldak-web/static/media/row-three-image1.cf60cc7d870f9827e0dbe443057557ea.svg",
+    "static/media/row-three-image3.svg": "/suldak-web/static/media/row-three-image3.61ad16132015fcfc4c1671563a719f86.svg",
+    "static/media/row-three-image2.svg": "/suldak-web/static/media/row-three-image2.30aa51f4632b198982d38afe8dba9ee3.svg",
+    "static/media/cocktail.svg": "/suldak-web/static/media/cocktail.fa66e87ac9edd59f7e88578a624de0d9.svg",
+    "static/media/suldak-logo-white.svg": "/suldak-web/static/media/suldak-logo-white.7ad04a7e63ffab60d473d7549ebce1f2.svg",
+    "static/media/notion-icon.svg": "/suldak-web/static/media/notion-icon.ed7b938cad3c03c1d6761ef97ea3202d.svg",
+    "static/media/suldak-bubble.svg": "/suldak-web/static/media/suldak-bubble.ab93bd1bf07d0e701ac0cfb19aa11718.svg",
+    "static/media/row-three-talk.svg": "/suldak-web/static/media/row-three-talk.6e9cdb0392a344a7edfeb19704f475c7.svg",
+    "static/media/row-two-talk.svg": "/suldak-web/static/media/row-two-talk.7082f8dca829c1390ebe66b1413973f1.svg",
+    "static/media/row-two-roni.svg": "/suldak-web/static/media/row-two-roni.01f5ebd3880f8d43ef1504f1498fa547.svg",
+    "static/media/row-three-maka.svg": "/suldak-web/static/media/row-three-maka.9ae080ca5ba4c343423aff2aee03c65f.svg",
+    "static/media/insta-icon.svg": "/suldak-web/static/media/insta-icon.1561e5c58cc2859ef5694a4ac7a2506f.svg",
+    "index.html": "/suldak-web/index.html",
+    "main.e6c13ad2.css.map": "/suldak-web/static/css/main.e6c13ad2.css.map",
+    "main.b17498ca.js.map": "/suldak-web/static/js/main.b17498ca.js.map",
+    "787.6ba275d1.chunk.js.map": "/suldak-web/static/js/787.6ba275d1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.b17498ca.js"
+  ]
+}
